@@ -1,0 +1,25 @@
+<p>npcnames works! Does the list??</p>
+<ul>
+	<li *ngFor="let name of names">
+		{{name.name}}
+	</li>
+</ul>
+<br />
+<label>NPC LIST&nbsp;&nbsp;</label>
+<select #mySelect (change)="onOptionsSelected(mySelect.value)">
+	<option [selected]=false></option>
+	<option *ngFor="let name of names">{{name.name}}</option>
+</select>
+<br /><br />
+<br /><br />
+
+<div *ngIf="(npcData != null)">
+	{{npcData.name}}<br/>
+	{{npcData.st}}<br/>
+	{{npcData.dx}}<br/>
+	{{npcData.iq}}<br/>
+	{{npcData.ma}}<br/>
+</div>
+
+<button (click)="printNames()">Print</button>
+<p>End of List</p>
