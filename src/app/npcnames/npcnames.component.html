@@ -9,22 +9,20 @@
 <button (click)="printNames()">Print</button>
 <br /><br />
 
-<form>
 
-	<p>
-		<label>NPC LIST&nbsp;&nbsp;</label>
+<p>
+	<label>NPC LIST&nbsp;&nbsp;</label>
 
-		<select [(ngModel)]="selectedName" [ngModelOptions]="{standalone: true}" (change)="onOptionsSelected(selectedName)">
-			<option></option>
-			<option *ngFor="let name of names">{{name.name}}</option>
-		</select>
+	<select [(ngModel)]="selectedName" [ngModelOptions]="{standalone: true}" (change)="onOptionsSelected(selectedName)">
+		<option></option>
+		<option *ngFor="let name of names">{{name.name}}</option>
+	</select>
 
-	</p>
+</p>
 <div *ngIf="(singleNPC != null)">
-	{{singleNPC.name}}<br/>
-	{{singleNPC.st}}<br/>
-	{{singleNPC.dx}}<br/>
-	{{singleNPC.iq}}<br/>
-	{{singleNPC.ma}}<br/>
+	Name:&nbsp;&nbsp;{{singleNPC.name}}<br />
+	ST:&nbsp;&nbsp;{{singleNPC.st}}<br />
+	DX:&nbsp;&nbsp;{{singleNPC.dx}}<br />
+	IQ:&nbsp;&nbsp;{{singleNPC.iq}}<br />
+	MA:&nbsp;&nbsp;{{singleNPC.ma}}<br />
 </div>
-</form>

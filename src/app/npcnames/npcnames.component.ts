@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 import { NpcserviceService } from '../services/npcservice.service';
 import { NPCData } from '../interfaces/npcdata';
 import { NPCName } from '../interfaces/npcname';
-import { Subscription } from 'rxjs';
-
 
 @Component({
   selector: 'app-npcnames',
@@ -23,7 +23,6 @@ export class NpcnamesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Simple GET request with response type <any>
-    //   this.names = this.outNames;
     this.subscript = this.npcService.getNPCNames().subscribe(data => (this.names = data));
   }
 
