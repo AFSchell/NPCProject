@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NpcnamesComponent } from './npcnames/npcnames.component';
+import { NpcserviceService } from './services/npcservice.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { NpcnamesComponent } from './npcnames/npcnames.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [NpcserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NpcserviceService } from '../services/npcservice.service';
 import { NPCData } from '../interfaces/npcdata';
 import { NPCName } from '../interfaces/npcname';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,15 +10,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './npcnames.component.html',
   styleUrls: ['./npcnames.component.css']
 })
-export class NpcnamesComponent implements OnInit {
+export class NpcnamesComponent implements OnInit, OnDestroy {
 
-  @Input() names: Observable<NPCName>;
-  npcData: Observable<NPCData>;
+  subscript: Subscription;
+  sub2: Subscription;
+  names: NPCName[];
+  singleNPC: NPCData;
 
-  constructor(private http: HttpClient) {
+  selectedName: string;
+
+  constructor(private npcService: NpcserviceService) { }
+
+  ngOnInit(): void {
+    // Simple GET request with response type <any>
+    //   this.names = this.outNames;
+    this.subscript = this.npcService.getNPCNames().subscribe(data => (this.names = data));
   }
 
-  ngOnInit(): void { }
+  ngOnDestroy(): void {
+    this.subscript.unsubscribe();
+  }
 
   printNames(): void {
     for (const index in this.names) {
@@ -30,16 +40,10 @@ export class NpcnamesComponent implements OnInit {
   }
 
   onOptionsSelected(npcname: string): void {
-    this.getNPCData(npcname);
-  }
-
-  getNPCData(npcname: string): void {
+    this.singleNPC = null;
     if (npcname != null && npcname !== '') {
-      this.http.get('http://localhost:8080/getNPC?name=' + npcname).subscribe(
-        (data: Observable<NPCData>) => { this.npcData = data[0]; console.log(this.npcData); });
-    } else {
-      this.npcData = null;
+      this.subscript = this.npcService.getNpcData(npcname).subscribe((data: NPCData[]) => { this.singleNPC = data[0]; });
     }
-
   }
+
 }
