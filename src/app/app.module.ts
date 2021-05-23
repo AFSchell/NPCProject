@@ -9,26 +9,28 @@ import { NpcnamesComponent } from './npcnames/npcnames.component';
 import { NpcserviceService } from './services/npcservice.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatSliderModule } from '@angular/material/slider';
-import { SkillsComponent } from './skills/skills.component';
+import { SpellsComponent } from './spells/spells.component';
+import { TalentsComponent } from './talents/talents.component';
 
 const appRoutes: Routes = [
   { path: 'npcs', component: NpcnamesComponent },
-  { path: 'skills', component: SkillsComponent },
+  { path: 'talents', component: TalentsComponent },
+  { path: 'spells', component: SpellsComponent },
+
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     NpcnamesComponent,
-    SkillsComponent
+    SpellsComponent,
+    TalentsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSliderModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
