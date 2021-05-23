@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
+import { MatSliderModule } from '@angular/material/slider';
+
 import { NpcserviceService } from '../services/npcservice.service';
 import { NPCData } from '../interfaces/npcdata';
 import { NPCName } from '../interfaces/npcname';
