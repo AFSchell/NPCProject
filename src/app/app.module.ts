@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,13 +9,24 @@ import { NpcnamesComponent } from './npcnames/npcnames.component';
 import { NpcserviceService } from './services/npcservice.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+
 import { SpellsComponent } from './spells/spells.component';
 import { TalentsComponent } from './talents/talents.component';
+import { TalenteditComponent } from './talents/talentedit/talentedit.component';
+import { SpelleditComponent } from './spells/spelledit/spelledit.component';
+import { TalentlistComponent } from './talents/talentlist/talentlist.component';
+import { SpelllistComponent } from './spells/spelllist/spelllist.component';
 
 const appRoutes: Routes = [
   { path: 'npcs', component: NpcnamesComponent },
   { path: 'talents', component: TalentsComponent },
   { path: 'spells', component: SpellsComponent },
+  { path: 'talents/edit', component: TalenteditComponent },
+  { path: 'talents/list', component: TalentlistComponent },
+  { path: 'spells/edit', component: SpelleditComponent },
+  { path: 'spells/list', component: SpelllistComponent },
 
 ];
 
@@ -24,18 +35,24 @@ const appRoutes: Routes = [
     AppComponent,
     NpcnamesComponent,
     SpellsComponent,
-    TalentsComponent
+    TalentsComponent,
+    TalenteditComponent,
+    SpelleditComponent,
+    TalentlistComponent,
+    SpelllistComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    DropDownsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [NpcserviceService],
   bootstrap: [AppComponent]
 })

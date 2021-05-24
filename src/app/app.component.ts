@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  public menuItems: Array<string>;
+
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.menuItems = ['One' , 'Two', 'Three'];
+  }
 
 }
 
