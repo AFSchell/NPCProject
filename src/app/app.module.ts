@@ -9,9 +9,6 @@ import { NpcnamesComponent } from './npcnames/npcnames.component';
 import { NpcserviceService } from './services/npcservice.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-
 import { SpellsComponent } from './spells/spells.component';
 import { TalentsComponent } from './talents/talents.component';
 import { TalenteditComponent } from './talents/talentedit/talentedit.component';
@@ -46,7 +43,6 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    DropDownsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
