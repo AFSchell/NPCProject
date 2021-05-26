@@ -9,6 +9,8 @@ import { NpcnamesComponent } from './npcnames/npcnames.component';
 import { NpcserviceService } from './services/npcservice.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatMenuModule} from '@angular/material/menu';
+
 import { SpellsComponent } from './spells/spells.component';
 import { TalentsComponent } from './talents/talents.component';
 import { TalenteditComponent } from './talents/talentedit/talentedit.component';
@@ -43,6 +45,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatMenuModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
