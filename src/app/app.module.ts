@@ -11,17 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatMenuModule} from '@angular/material/menu';
 
-import { GridModule } from '@progress/kendo-angular-grid';
-
-
 import { SpellsComponent } from './spells/spells.component';
 import { TalentsComponent } from './talents/talents.component';
 import { TalenteditComponent } from './talents/talentedit/talentedit.component';
 import { SpelleditComponent } from './spells/spelledit/spelledit.component';
 import { TalentlistComponent } from './talents/talentlist/talentlist.component';
 import { SpelllistComponent } from './spells/spelllist/spelllist.component';
+import { HomeScreenComponent } from './home-screen/home-screen.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeScreenComponent },
   { path: 'npcs', component: NpcnamesComponent },
   { path: 'talents', component: TalentsComponent },
   { path: 'spells', component: SpellsComponent },
@@ -41,14 +40,14 @@ const appRoutes: Routes = [
     TalenteditComponent,
     SpelleditComponent,
     TalentlistComponent,
-    SpelllistComponent
+    SpelllistComponent,
+    HomeScreenComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    GridModule,
     MatMenuModule,
     RouterModule.forRoot(
       appRoutes,
