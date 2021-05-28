@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatMenuModule} from '@angular/material/menu';
 
+import { GridModule } from '@progress/kendo-angular-grid';
+
+
 import { SpellsComponent } from './spells/spells.component';
 import { TalentsComponent } from './talents/talents.component';
 import { TalenteditComponent } from './talents/talentedit/talentedit.component';
@@ -45,6 +48,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    GridModule,
     MatMenuModule,
     RouterModule.forRoot(
       appRoutes,
