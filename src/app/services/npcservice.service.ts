@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { NPCData } from '../interfaces/npcdata';
 import { NPCName } from '../interfaces/npcname';
+import { ServiceInterface } from '../interfaces/serviceinterface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +24,27 @@ export class NpcserviceService {
     return this.http.get<NPCName[]>('http://localhost:8080/getNPCNames');
   }
 
-  getNpcData(npcname: string): Observable<NPCData[]> {
-    let outNames: Observable<NPCData[]>;
-    outNames = null;
+  getNpcData(npcname: string): Observable<any> {
+
+    let returnValue: any;
+
     if (npcname != null && npcname !== '') {
-      outNames = this.http.get<NPCData[]>('http://localhost:8080/getNPC?name=' + npcname);
+      returnValue = this.http.get<any>('http://localhost:8080/getNPC?name=' + npcname);
     }
-    return outNames;
+
+    return returnValue;
   }
 
+
+  /*   getNpcData(npcname: string): Observable<ServiceInterface[]> {
+      //    let outNames: Observable<NPCData[]>;
+      //    outNames = null;
+      let serviceBack: Observable<ServiceInterface[]>;
+      if (npcname != null && npcname !== '') {
+        serviceBack = this.http.get<ServiceInterface[]>('http://localhost:8080/getNPC?name=' + npcname);
+        //      outNames = this.http.get<NPCData[]>('http://localhost:8080/getNPC?name=' + npcname);
+      }
+      return serviceBack;
+    }
+   */
 }

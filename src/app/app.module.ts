@@ -20,7 +20,7 @@ import { SpelllistComponent } from './spells/spelllist/spelllist.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeScreenComponent },
+//  { path: '', component: HomeScreenComponent },
   { path: 'npcs', component: NpcnamesComponent },
   { path: 'talents', component: TalentsComponent },
   { path: 'spells', component: SpellsComponent },
