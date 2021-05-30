@@ -17,6 +17,7 @@ export class NpcnamesComponent implements OnInit, OnDestroy {
   sub2: Subscription;
   names: NPCName[];
   singleNPC: NPCData;
+  npcData: NPCData[] = [];
   returnData: ServiceInterface;
 
   selectedName: string;
@@ -40,27 +41,22 @@ export class NpcnamesComponent implements OnInit, OnDestroy {
     }
   }
 
-  onOptionsSelected(npcname: string): void {
-    //    let npcs: NPCData[];
+  onListNpcs(): void {
+    this.subscript = this.npcService.getNpcData('').
+      subscribe((returnedData: ServiceInterface) => {
+        for (let i = 0; i < returnedData.data.length; i++) {
+          this.npcData[i] = JSON.parse(JSON.stringify(returnedData.data[i]));
+        }
+      });
 
-    let stringObject: string;
-    let parsedObject: NPCData;
+  }
+
+  onOptionsSelected(npcname: string): void {
+
     if (npcname != null && npcname !== '') {
       this.subscript = this.npcService.getNpcData(npcname).
-        subscribe((stuff: any) => {
-          console.log('stuff came back');
-          console.log('stuff -> ' + stuff);
-          stringObject = JSON.stringify(stuff);
-          console.log('stringObject --> ' + stringObject);
-          this.returnData = stuff as ServiceInterface;
-          console.log('data --> ' + JSON.stringify(this.returnData.data[0]));
-          parsedObject = JSON.parse(JSON.stringify(this.returnData.data[0]));
-          console.log( 'parsedObject --> ' + parsedObject.name + '  ST: ' + parsedObject.st );
-          /*
-          stringObject = JSON.parse(stuff);
-          */
-          //         npcs = stuff[0].data as NPCData[];
-          //       this.singleNPC = npcs[0]; console.log(this.singleNPC);
+        subscribe((returnedData: ServiceInterface) => {
+          this.singleNPC = JSON.parse(JSON.stringify(returnedData.data[0]));
         });
     }
   }

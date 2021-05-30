@@ -6,7 +6,7 @@
 </ul>
 <br />
 
-<button (click)="printNames()">Print</button>
+<button (click)="onListNpcs()">Print</button>
 <br /><br />
 
 
@@ -19,8 +19,8 @@
 	</select>
 
 </p>
-<br/>
-<br/>
+<br />
+<br />
 <div *ngIf="(singleNPC != null)">
 	Name:&nbsp;&nbsp;{{singleNPC.name}}<br />
 	ST:&nbsp;&nbsp;{{singleNPC.st}}<br />
@@ -28,3 +28,24 @@
 	IQ:&nbsp;&nbsp;{{singleNPC.iq}}<br />
 	MA:&nbsp;&nbsp;{{singleNPC.ma}}<br />
 </div>
+<br /><br />
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>ST</th>
+			<th>DX</th>
+			<th>IQ</th>
+			<th>MA</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let npc of npcData;">
+			<td>{{npc.name}}</td>
+			<td>{{npc.st}}</td>
+			<td>{{npc.dx}}</td>
+			<td>{{npc.iq}}</td>
+			<td>{{npc.ma}}</td>
+		</tr>
+	</tbody>
+</table>
