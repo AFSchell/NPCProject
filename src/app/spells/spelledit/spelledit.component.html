@@ -1,6 +1,25 @@
+<div class="div1"><h1>Spell Edit</h1></div>
 <form>
-<div class="spellId">
-		<label>ID:</label>&nbsp;&nbsp;<input width="50"/>
-</div>
-
+	<table>
+		<tr>
+			<td class="spellFetchFiller">&nbsp;</td>
+			<td class="spellFetchText"><label class="spellId">ID:</label></td>
+			<td class="spellFetchText"><input [(ngModel)]="spellId" [ngModelOptions]="{standalone: true}" width="50" /></td>
+			<td class="spellFetchButton"><button (click)="fetchSpell(spellId)">Fetch</button></td>
+			<td class="spellFetchButton"><button (click)="addSpell(spellId)">Add</button></td>
+			<td class="spellFetchFiller">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="spellFetchFiller">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="spellFetchFiller">&nbsp;</td>
+			<td class="spellFetchFiller">&nbsp;</td>
+			<td class="spellFetchButton"><button (click)="onSubmit()">Submit</button></td>
+			<td class="spellFetchFiller">&nbsp;</td>
+			<td class="spellFetchFiller">&nbsp;</td>
+		</tr>
+	</table>
+	<br />
+	<br />
 </form>

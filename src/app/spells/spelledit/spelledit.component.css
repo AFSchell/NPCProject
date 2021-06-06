@@ -1,5 +1,28 @@
+.div1 {
+  text-align: center;
+}
+
 .spellId {
-  position: absolute;
-  left: 100px;
-  top: 150px;
+  font-weight: bold;
+  font-size: medium;
+  font-style: normal;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.spellFetchButton {
+  width: 20%;
+  text-align: center;
+}
+
+.spellFetchFiller {
+  width: 20%;
+}
+
+.spellFetchText {
+  width: 10%;
+  font-weight: bold;
+  font-size: medium;
+  font-style: normal;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }

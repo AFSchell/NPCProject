@@ -13,8 +13,9 @@ export class NpcserviceService {
 
   constructor(private http: HttpClient) { }
 
-  getNPCNames(): Observable<NPCName[]> {
-    return this.http.get<NPCName[]>('http://localhost:8080/getNPCNames');
+  getNPCNames(): Observable<ServiceInterface> {
+    return this.http.get<any>('http://localhost:8080/getNPCNames');
+//    return this.http.get<NPCName[]>('http://localhost:8080/getNPCNames');
   }
 
   getNpcData(npcname: string): Observable<ServiceInterface> {
