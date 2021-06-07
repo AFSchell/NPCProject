@@ -4,9 +4,9 @@
 		<tr>
 			<td class="spellFetchFiller">&nbsp;</td>
 			<td class="spellFetchText"><label class="spellId">ID:</label></td>
-			<td class="spellFetchText"><input [(ngModel)]="spellId" [ngModelOptions]="{standalone: true}" width="50" /></td>
-			<td class="spellFetchButton"><button (click)="fetchSpell(spellId)">Fetch</button></td>
-			<td class="spellFetchButton"><button (click)="addSpell(spellId)">Add</button></td>
+			<td class="spellFetchText"><input [(ngModel)]="spellId" [ngModelOptions]="{standalone: true}" width="50" (input)="idEntered()" /></td>
+			<td class="spellFetchButton"><button (click)="fetchSpell(spellId)" [disabled]="!bEditing">Fetch</button></td>
+			<td class="spellFetchButton"><button (click)="addSpell(spellId)" [disabled]="!bAdding">Add</button></td>
 			<td class="spellFetchFiller">&nbsp;</td>
 		</tr>
 		<tr>

@@ -26,14 +26,12 @@ export class NpcnamesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Simple GET request with response type <any>
-    console.log(' nginit start' );
     this.subscript = this.npcService.getNPCNames().subscribe((data: ServiceInterface) => {
       for (let i = 0; i < data.data.length; i++) {
         this.names[i] = JSON.parse(JSON.stringify(data.data[i]));
         console.log(this.names[i]);
       }
     });
-    console.log(' nginit end' );
   }
 
   ngOnDestroy(): void {

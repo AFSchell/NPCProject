@@ -16,7 +16,10 @@ export class SpelleditComponent implements OnInit {
   description: string;
   iq: string;
   prereq: string[];
-  
+
+  bAdding: boolean = true;
+  bEditing: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -34,5 +37,15 @@ export class SpelleditComponent implements OnInit {
   addSpell(spellId: string): void {
     this.spellId = spellId;
     console.log(this.spellId);
+  }
+
+  idEntered(): void {
+    if (this.spellId.length > 0) {
+      this.bEditing = true;
+      this.bAdding = false;
+    } else {
+      this.bEditing = false;
+      this.bAdding = true;
+    }
   }
 }
