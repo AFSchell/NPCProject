@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
+
 export class AppComponent implements OnInit {
 
   title = 'NPCDisplayProject';
@@ -14,21 +16,26 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void { }
 
+
+ showAlert(event: any): void {
+// 	alert('Here you go ' + event.tab.textLabel);
+   this.showOnClick( event.tab.textLabel );
+}
  showOnClick(page: string): void {
     let link: string;
-    if (page === 'NPCList') {
+    if (page === 'NPCs') {
       link = 'npcs';
     }
     if (page === 'SpellList') {
       link = 'spells/list';
     }
-    if (page === 'SpellEdit') {
+    if (page === 'Spells') {
       link = 'spells/edit';
     }
     if (page === 'TalentList') {
       link = 'talents/list';
     }
-    if (page === 'TalentEdit') {
+    if (page === 'Talents') {
       link = 'talents/edit';
     }
 
