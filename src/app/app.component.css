@@ -22,7 +22,6 @@
 .tabDiv {
 	margin-left: 5%;
 	margin-right: 5%;
-	border-style: dotted;
 }
 /* Styles for tab labels */
 .mat-tab-label {
@@ -32,6 +31,9 @@
     color: red;
     font-weight: 700;
 	width: 30%;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
 }
 
 /* Styles for the active tab label */
@@ -42,6 +44,7 @@
     color: green;
     font-weight: 700;
 	width: 30%;
+	border-bottom-style: none;
 }
 
 /* Styles for the ink bar */
